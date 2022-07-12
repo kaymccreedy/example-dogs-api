@@ -14,10 +14,15 @@ class DogsController < ApplicationController
     dog = Dog.new(
       name: params["name"],
       age: params["age"],
-      breed: params["breed"]
+      breed: params["breed"],
+      user_id: current_user.id
     )
-    dog.save
-    render json: dog.as_json
+    if current_user
+      dog.save
+      render json: dog.as_json
+    else
+      render json: { error: "User must be logged in to create dog" }
+    end
   end
 
   def update

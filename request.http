@@ -17,3 +17,5 @@ Content-Type: application/json
   "email": "kay@example.com",
   "password": "password"
 }
+
+### Dogs create
